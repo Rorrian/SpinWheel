@@ -8,8 +8,16 @@
   font-family: "Poppins", sans-serif;
 }
 
+:root {
+  --blue: #03a9f4;
+  --pink: #f441a5;
+  --yellow: #ffeb3b;
+  --grey: #222;
+  --white: #fff;
+}
+
 body {
-  background: #222;
+  background: var(--grey);
   min-height: 100vh;
   padding: 30px 20px;
 }
@@ -50,7 +58,7 @@ h1 span:nth-child(7) {
 @keyframes animate {
   0%,
   100% {
-    color: #fff;
+    color: var(--white);
     filter: blur(2px);
     text-shadow: 0 0 10px #fff200, 0 0 20px #fff200, 0 0 40px #fff200,
       0 0 80px #fff200, 0 0 120px #fff200, 0 0 200px #fff200, 0 0 300px #fff200;
@@ -90,7 +98,7 @@ h1 span:nth-child(7) {
   align-items: center;
   row-gap: 10px;
 
-  color: #fff;
+  color: var(--white);
 }
 
 .controls label span {
@@ -122,14 +130,20 @@ h1 span:nth-child(7) {
 
   height: 60px;
   padding: 20px 40px;
-  background: linear-gradient(90deg, #03a9f4, #f441a5, #ffeb3b, #03a9f4);
+  background: linear-gradient(
+    90deg,
+    var(--blue),
+    var(--pink),
+    var(--yellow),
+    var(--blue)
+  );
   background-size: 400%;
   border-radius: 30px;
   margin: 0 auto;
   margin-bottom: 50px;
 
   font-size: 18px;
-  color: #fff;
+  color: var(--white);
   text-transform: uppercase;
 }
 .setBtn:hover {
@@ -152,7 +166,13 @@ h1 span:nth-child(7) {
   bottom: -5px;
   z-index: -1;
 
-  background: linear-gradient(90deg, #03a9f4, #f441a5, #ffeb3b, #03a9f4);
+  background: linear-gradient(
+    90deg,
+    var(--blue),
+    var(--pink),
+    var(--yellow),
+    var(--blue)
+  );
   background-size: 400%;
   border-radius: 40px;
   opacity: 0;
@@ -181,7 +201,7 @@ h1 span:nth-child(7) {
 
   width: 60px;
   height: 60px;
-  background: #fff;
+  background: var(--white);
   border-radius: 50%;
   border: 4px solid rgba(0, 0, 0, 0.75);
 
@@ -204,7 +224,7 @@ h1 span:nth-child(7) {
 
   width: 20px;
   height: 30px;
-  background: #fff;
+  background: var(--white);
   clip-path: polygon(
     50% 0%,
     15% 100%,
@@ -256,7 +276,7 @@ h1 span:nth-child(7) {
 
   font-size: 0.75em;
   font-weight: 600;
-  color: #fff;
+  color: var(--white);
   text-shadow: 3px 5px 2px rgba(0, 0, 0, 0.15);
   text-align: center;
 }
@@ -267,7 +287,7 @@ h1 span:nth-child(7) {
   left: 10px;
 
   font-size: 14px;
-  color: red;
+  color: #f00;
 }
 
 /* ------------------------------------------------------------------ */

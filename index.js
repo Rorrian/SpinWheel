@@ -17,13 +17,15 @@ const initOptions = () => {
   const setBtn = document.querySelector(".setBtn")
 
   setBtn.addEventListener("click", () => {
-    const options = document.querySelector("textarea").value.split(",")
+    const optionsInput = document.querySelector("textarea").value;
+    let options = optionsInput.split(/[,\n]+/).map(option => option.trim());
+    const validOptions = options.filter(option => option !== "");
 
-    if (options.length < 2 || options.some((option) => option === "")) {
+    if (validOptions.length < 2) {
       showError("The number of options must be at least 2!")
     } else {
       clearError()
-      updateWheelOptions(options)
+      updateWheelOptions(validOptions)
     }
   })
 }
@@ -59,7 +61,7 @@ const styleOption = (el, index, totalOptions) => {
   let top, left, textAngle
 
   if (isMobileDevice()) {
-    // TODO: Поправить отображение на мобилке
+    // TODO: Поправить отображение для мобильных устройств
     // const values = [
     //   { N: 2, Y: 50 },
     //   { N: 5, Y: 35 },
@@ -114,7 +116,7 @@ const styleOption = (el, index, totalOptions) => {
   } else {
     top = -15 * totalOptions + (totalOptions < 8 ? 110 : 120)
     left = (5 / 3) * totalOptions - (totalOptions < 8 ? 70 : 35)
-    textAngle = calcTextAngle(totalOptions, false)
+    textAngle = calcTextAngle(totalOptions)
   }
 
   el.style.setProperty("--angle", `${angle}%`)
@@ -127,21 +129,7 @@ const isMobileDevice = () => {
   return /Mobi|Android/i.test(navigator.userAgent)
 }
 
-const calcTextAngle = (totalOptions, isMobile) => {
-  if (isMobile) {
-    switch (totalOptions) {
-      case 2:
-      case 3:
-        return 47
-      case 6:
-        return 60
-      case 7:
-        return 65
-      default:
-        return 70
-    }
-  }
-
+const calcTextAngle = (totalOptions) => {
   switch (totalOptions) {
     case 2:
     case 3:
@@ -156,12 +144,7 @@ const calcTextAngle = (totalOptions, isMobile) => {
 }
 
 const generateRandomColor = () => {
-  const letters = "0123456789ABCDEF"
-  let color = "#"
-  for (let i = 0; i < 6; i++) {
-    color += letters[Math.floor(Math.random() * 16)]
-  }
-  return color
+  return `#${Math.floor(Math.random() * 16777215).toString(16)}`
 }
 
 const showError = (message) => {

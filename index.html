@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
   <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Spin Wheel</title>
@@ -7,16 +7,18 @@
   </head>
 
   <body>
-    <h1>
-      <span>S</span>
-      <span>p</span>
-      <span>i</span>
-      <span>n</span>
-      &ensp;
-      <span>i</span>
-      <span>t</span>
-      <span>!</span>
-    </h1>
+    <header>
+      <h1>
+        <span>S</span>
+        <span>p</span>
+        <span>i</span>
+        <span>n</span>
+        &ensp;
+        <span>i</span>
+        <span>t</span>
+        <span>!</span>
+      </h1>
+    </header>
 
     <div class="wrapper">
       <div class="controls">
@@ -33,123 +35,36 @@ Cafe, Park, Billiards, DIY, Board games, Bicycle riding, Trip, Rock climbing</te
         <button class="setBtn">Set options</button>
       </div>
 
-      <div class="container">
+      <section class="container">
         <div class="spinBtn">Spin</div>
         <div class="wheel">
-          <div
-            class="number"
-            style="
-              --i: 1;
-              --clr: #db7093;
-              --total: 8;
-              --angle: 0%;
-              --top: 10px;
-              --left: -35px;
-              --textAngle: 70deg;
-            "
-          >
+          <!-- Wheel Items -->
+          <div class="number" style="--i: 1; --clr: #db7093; --total: 8; --angle: 0%; --top: 10px; --left: -35px; --textAngle: 70deg;">
             <span>Cafe</span>
           </div>
-          <div
-            class="number"
-            style="
-              --i: 2;
-              --clr: #20b2aa;
-              --total: 8;
-              --angle: 0%;
-              --top: 10px;
-              --left: -35px;
-              --textAngle: 70deg;
-            "
-          >
+          <div class="number" style="--i: 2; --clr: #20b2aa; --total: 8; --angle: 0%; --top: 10px; --left: -35px; --textAngle: 70deg;">
             <span>Park</span>
           </div>
-          <div
-            class="number"
-            style="
-              --i: 3;
-              --clr: #d63e92;
-              --total: 8;
-              --angle: 0%;
-              --top: 10px;
-              --left: -35px;
-              --textAngle: 70deg;
-            "
-          >
+          <div class="number" style="--i: 3; --clr: #d63e92; --total: 8; --angle: 0%; --top: 10px; --left: -35px; --textAngle: 70deg;">
             <span>Billiards</span>
           </div>
-          <div
-            class="number"
-            style="
-              --i: 4;
-              --clr: #daa520;
-              --total: 8;
-              --angle: 0%;
-              --top: 10px;
-              --left: -35px;
-              --textAngle: 70deg;
-            "
-          >
+          <div class="number" style="--i: 4; --clr: #daa520; --total: 8; --angle: 0%; --top: 10px; --left: -35px; --textAngle: 70deg;">
             <span>DIY</span>
           </div>
-          <div
-            class="number"
-            style="
-              --i: 5;
-              --clr: #ff340f;
-              --total: 8;
-              --angle: 0%;
-              --top: 10px;
-              --left: -35px;
-              --textAngle: 70deg;
-            "
-          >
+          <div class="number" style="--i: 5; --clr: #ff340f; --total: 8; --angle: 0%; --top: 10px; --left: -35px; --textAngle: 70deg;">
             <span>Board games</span>
           </div>
-          <div
-            class="number"
-            style="
-              --i: 6;
-              --clr: #ff7f50;
-              --total: 8;
-              --angle: 0%;
-              --top: 10px;
-              --left: -35px;
-              --textAngle: 70deg;
-            "
-          >
+          <div class="number" style="--i: 6; --clr: #ff7f50; --total: 8; --angle: 0%; --top: 10px; --left: -35px; --textAngle: 70deg;">
             <span>Bicycle riding</span>
           </div>
-          <div
-            class="number"
-            style="
-              --i: 7;
-              --clr: #3cb371;
-              --total: 8;
-              --angle: 0%;
-              --top: 10px;
-              --left: -35px;
-              --textAngle: 70deg;
-            "
-          >
+          <div class="number" style="--i: 7; --clr: #3cb371; --total: 8; --angle: 0%; --top: 10px; --left: -35px; --textAngle: 70deg;">
             <span>Trip</span>
           </div>
-          <div
-            class="number"
-            style="
-              --i: 8;
-              --clr: #4169d1;
-              --total: 8;
-              --angle: 0%;
-              --top: 10px;
-              --left: -35px;
-              --textAngle: 70deg;
-            "
-          >
+          <div class="number" style="--i: 8; --clr: #4169d1; --total: 8; --angle: 0%; --top: 10px; --left: -35px; --textAngle: 70deg;">
             <span>Rock climbing</span>
           </div>
         </div>
-      </div>
+      </section>
     </div>
 
     <script src="index.js"></script>
