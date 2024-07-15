@@ -1,0 +1,325 @@
+@import url("https://fonts.googleapis.com/css?family=Poppins:200,300,400,500,600,700,800,900&display=swap");
+@import url("https://fonts.googleapis.com/css?family=Bad+Script");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+body {
+  background: #222;
+  min-height: 100vh;
+  padding: 30px 20px;
+}
+
+h1 {
+  margin: 20px 0 40px;
+  padding: 0;
+
+  font-size: 4.5em;
+  color: #111;
+  text-align: center;
+}
+h1 span {
+  font-family: "Bad Script", cursive;
+  animation: animate 2s linear infinite;
+}
+h1 span:nth-child(1) {
+  animation-delay: 0s;
+}
+h1 span:nth-child(2) {
+  animation-delay: 0.25s;
+}
+h1 span:nth-child(3) {
+  animation-delay: 0.5s;
+}
+h1 span:nth-child(4) {
+  animation-delay: 0.75s;
+}
+h1 span:nth-child(5) {
+  animation-delay: 1s;
+}
+h1 span:nth-child(6) {
+  animation-delay: 1.25s;
+}
+h1 span:nth-child(7) {
+  animation-delay: 1.5s;
+}
+@keyframes animate {
+  0%,
+  100% {
+    color: #fff;
+    filter: blur(2px);
+    text-shadow: 0 0 10px #fff200, 0 0 20px #fff200, 0 0 40px #fff200,
+      0 0 80px #fff200, 0 0 120px #fff200, 0 0 200px #fff200, 0 0 300px #fff200;
+  }
+  5%,
+  95% {
+    color: #111;
+    filter: blur(0px);
+    text-shadow: 0 0 10px none;
+  }
+}
+
+.wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  column-gap: 10vw;
+
+  width: 100%;
+}
+
+.controls {
+  position: relative;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  row-gap: 30px;
+
+  margin-bottom: 50px;
+}
+
+.controls label {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  row-gap: 10px;
+
+  color: #fff;
+}
+
+.controls label span {
+  margin-bottom: 20px;
+
+  font-size: 1.15em;
+  text-align: center;
+}
+
+.controls label textarea {
+  width: 100%;
+  min-height: 200px;
+  padding: 10px;
+
+  font-size: 1em;
+  color: #111;
+}
+.controls label textarea:placeholder {
+  font-style: italic;
+}
+
+.setBtn {
+  position: relative;
+  z-index: 1;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  height: 60px;
+  padding: 20px 40px;
+  background: linear-gradient(90deg, #03a9f4, #f441a5, #ffeb3b, #03a9f4);
+  background-size: 400%;
+  border-radius: 30px;
+  margin: 0 auto;
+  margin-bottom: 50px;
+
+  font-size: 18px;
+  color: #fff;
+  text-transform: uppercase;
+}
+.setBtn:hover {
+  animation: text 8s linear infinite;
+}
+@keyframes text {
+  0% {
+    background-position: 0%;
+  }
+  100% {
+    background-position: 400%;
+  }
+}
+.setBtn::before {
+  content: "";
+  position: absolute;
+  top: -5px;
+  left: -5px;
+  right: -5px;
+  bottom: -5px;
+  z-index: -1;
+
+  background: linear-gradient(90deg, #03a9f4, #f441a5, #ffeb3b, #03a9f4);
+  background-size: 400%;
+  border-radius: 40px;
+  opacity: 0;
+  transition: 0.5s;
+}
+.setBtn:hover::before {
+  filter: blur(20px);
+  opacity: 1;
+  animation: text 8s linear infinite;
+}
+
+.container {
+  position: relative;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  width: 400px;
+  height: 400px;
+}
+
+.container .spinBtn {
+  position: absolute;
+  z-index: 10;
+
+  width: 60px;
+  height: 60px;
+  background: #fff;
+  border-radius: 50%;
+  border: 4px solid rgba(0, 0, 0, 0.75);
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  text-transform: uppercase;
+  font-weight: 600;
+  color: #333;
+  letter-spacing: 0.1em;
+
+  cursor: pointer;
+  user-select: none;
+}
+.container .spinBtn::before {
+  content: "";
+  position: absolute;
+  top: -28px;
+
+  width: 20px;
+  height: 30px;
+  background: #fff;
+  clip-path: polygon(
+    50% 0%,
+    15% 100%,
+    85% 100%
+  ); /* Вспомогательный сайт - https://bennettfeely.com/clippy/ */
+}
+
+.container .wheel {
+  position: absolute;
+  top: 0;
+  left: 0;
+
+  width: 100%;
+  height: 100%;
+  background: #333;
+  border-radius: 50%;
+  overflow: hidden;
+  box-shadow: 0 0 0 5px #333, 0 0 0 15px #fff, 0 0 0 18px #111;
+  transition: transform 5s ease-in-out;
+}
+
+.container .wheel .number {
+  position: absolute;
+  width: 50%;
+  height: 50%;
+  background: var(--clr);
+
+  display: flex;
+  justify-content: center;
+  align-items: stretch;
+
+  /* форма секции круга */
+  transform-origin: bottom right;
+  transform: rotate(calc(360deg / var(--total) * var(--i)));
+  clip-path: polygon(0 0, 100% 0, 100% 100%, 0 var(--angle));
+
+  user-select: none;
+  cursor: pointer;
+}
+
+.container .wheel .number span {
+  position: relative;
+  top: 10px;
+  top: var(--top);
+  left: -20px;
+  left: var(--left);
+  transform: rotate(70deg);
+  transform: rotate(var(--textAngle));
+
+  font-size: 0.75em;
+  font-weight: 600;
+  color: #fff;
+  text-shadow: 3px 5px 2px rgba(0, 0, 0, 0.15);
+  text-align: center;
+}
+
+.error {
+  position: absolute;
+  bottom: 0;
+  left: 10px;
+
+  font-size: 14px;
+  color: red;
+}
+
+/* ------------------------------------------------------------------ */
+/* responcive design */
+
+@media (max-width: 991px) {
+  .wrapper {
+    flex-direction: column;
+    row-gap: 50px;
+  }
+
+  .controls {
+    margin-bottom: 0;
+
+    row-gap: 40px;
+  }
+
+  .container .wheel .number span {
+    max-width: 90px;
+  }
+
+  .setBtn {
+    margin-bottom: 0;
+  }
+
+  .error {
+    bottom: 70px;
+
+    font-weight: 600;
+  }
+}
+
+@media (max-width: 475px) {
+  h1 {
+    font-size: 3.5em;
+  }
+
+  .container {
+    width: 300px;
+    height: 300px;
+  }
+
+  .controls label span {
+    margin-bottom: 10px;
+
+    font-size: 1em;
+  }
+}
+
+@media (max-width: 350px) {
+  .container {
+    width: 270px;
+    height: 270px;
+  }
+}
