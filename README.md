@@ -10,7 +10,7 @@ https://rorrian.github.io/SpinWheel/
 <br/>
 
 <B>TODO:</B>
-+ add option to separate options via line break
+- ~~add option to separate options via line break~~
 - fix display of text on mobile devices
 
 <br/>
