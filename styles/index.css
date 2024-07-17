@@ -5,6 +5,7 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  outline: none;
   font-family: "Poppins", sans-serif;
 }
 
@@ -88,6 +89,8 @@ h1 span:nth-child(7) {
   row-gap: 30px;
 
   margin-bottom: 50px;
+  
+  color: var(--white);
 }
 
 .controls label {
@@ -111,6 +114,7 @@ h1 span:nth-child(7) {
   width: 100%;
   min-height: 200px;
   padding: 10px;
+  resize: none;
 
   font-size: 1em;
   color: #111;
@@ -175,7 +179,8 @@ h1 span:nth-child(7) {
   background-size: 400%;
   border-radius: 40px;
   opacity: 0;
-  transition: 0.5s;
+  transition: filter 0.5s ease-in-out, opacity 0.5s ease-in-out,
+    background-position 0.5s ease-in-out;
 }
 .setBtn:hover::before {
   filter: blur(20px);
@@ -231,46 +236,48 @@ h1 span:nth-child(7) {
   ); /* Вспомогательный сайт - https://bennettfeely.com/clippy/ */
 }
 
-.container .wheel {
-  position: absolute;
-  top: 0;
-  left: 0;
+  .container .wheel {
+    position: absolute;
+    top: 0;
+    left: 0;
 
-  width: 100%;
-  height: 100%;
-  background: #333;
-  border-radius: 50%;
-  overflow: hidden;
-  box-shadow: 0 0 0 5px #333, 0 0 0 15px #fff, 0 0 0 18px #111;
-  transition: transform 5s ease-in-out;
-}
+    width: 100%;
+    height: 100%;
+    background: #333;
+    border-radius: 50%;
+    overflow: hidden;
+    box-shadow: 0 0 0 5px #333, 0 0 0 15px #fff, 0 0 0 18px #111;
+    transition: transform 5s ease-in-out;
+  }
 
-.container .wheel .number {
-  position: absolute;
-  width: 50%;
-  height: 50%;
-  background: var(--clr);
+  .container .wheel .number {
+    position: absolute;
+    width: 50%;
+    height: 50%;
+    background-color: var(--clr);
 
-  display: flex;
-  justify-content: center;
-  align-items: stretch;
+    display: flex;
+    justify-content: center;
+    align-items: stretch;
 
-  /* форма секции круга */
-  transform-origin: bottom right;
-  transform: rotate(calc(360deg / var(--total) * var(--i)));
-  clip-path: polygon(0 0, 100% 0, 100% 100%, 0 var(--angle));
+    transform-origin: bottom right;
+    transform: rotate(calc(360deg / var(--total) * var(--i)));
+    /* форма секции круга */
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0 var(--angle));
+    /* clip-path: polygon(0 17%, 0 50%, 50% 50%); */
+    transition: transform 5s ease-out;
 
-  user-select: none;
-  cursor: pointer;
-}
+    user-select: none;
+    cursor: pointer;
+  }
 
 .container .wheel .number span {
   position: relative;
-  top: 10px;
+  /* top: 10px; */
   top: var(--top);
-  left: -20px;
+  /* left: -20px; */
   left: var(--left);
-  transform: rotate(70deg);
+  /* transform: rotate(70deg); */
   transform: rotate(var(--textAngle));
 
   font-size: 0.75em;
@@ -287,58 +294,4 @@ h1 span:nth-child(7) {
 
   font-size: 14px;
   color: #f00;
-}
-
-/* ------------------------------------------------------------------ */
-/* responcive design */
-
-@media (max-width: 991px) {
-  .wrapper {
-    flex-direction: column;
-    row-gap: 50px;
-  }
-
-  .controls {
-    margin-bottom: 0;
-
-    row-gap: 40px;
-  }
-
-  .container .wheel .number span {
-    max-width: 90px;
-  }
-
-  .setBtn {
-    margin-bottom: 0;
-  }
-
-  .error {
-    bottom: 70px;
-
-    font-weight: 600;
-  }
-}
-
-@media (max-width: 475px) {
-  h1 {
-    font-size: 3.5em;
-  }
-
-  .container {
-    width: 300px;
-    height: 300px;
-  }
-
-  .controls label span {
-    margin-bottom: 10px;
-
-    font-size: 1em;
-  }
-}
-
-@media (max-width: 350px) {
-  .container {
-    width: 270px;
-    height: 270px;
-  }
 }
