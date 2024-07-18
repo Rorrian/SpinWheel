@@ -4,11 +4,11 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
     <title>Winwheel</title>
+
     <link rel="stylesheet" type="text/css" href="styles/index.css" />
     <link rel="stylesheet" type="text/css" href="styles/adaptive.css" />
-
-    <link rel="stylesheet" type="text/css" href="styles/try2.css" />
   </head>
 
   <body>
@@ -33,144 +33,35 @@
               ✨ Enter several options in the next input field, set and spin!
             </span>
 
-            <textarea placeholder="Some variants...">
-              Cafe, Park, Billiards, DIY, Board games, Bicycle riding, Trip, Rock climbing
-            </textarea>
+            <textarea placeholder="Type some variants...">
+Cafe
+Park
+Billiards
+DIY
+Board games
+Bicycle riding
+Trip
+Rock climbing</textarea
+            >
           </label>
 
           <button class="setBtn">Set options</button>
 
-          <div>
-            WINNER:
-            <p id="winner">???</p>
+          <div class="winner">
+            <p>And winner is...</p>
+            <p class="winnerName">?</p>
           </div>
         </div>
 
-        <section class="container">
-          <div class="spinBtn" aria-label="Spin the wheel button">Spin</div>
+        <div class="container">
           <div class="wheel">
-            <div
-              class="number"
-              data-index="0"
-              style="
-                --i: 1;
-                --clr: #db7093;
-                --total: 8;
-                --angle: 0%;
-                --top: 10px;
-                --left: -35px;
-                --textAngle: 70deg;
-              "
-            >
-              <span>Cafe</span>
-            </div>
-            <div
-              class="number"
-              data-index="1"
-              style="
-                --i: 2;
-                --clr: #20b2aa;
-                --total: 8;
-                --angle: 0%;
-                --top: 10px;
-                --left: -35px;
-                --textAngle: 70deg;
-              "
-            >
-              <span>Park</span>
-            </div>
-            <div
-              class="number"
-              data-index="2"
-              style="
-                --i: 3;
-                --clr: #d63e92;
-                --total: 8;
-                --angle: 0%;
-                --top: 10px;
-                --left: -35px;
-                --textAngle: 70deg;
-              "
-            >
-              <span>Billiards</span>
-            </div>
-            <div
-              class="number"
-              data-index="3"
-              style="
-                --i: 4;
-                --clr: #daa520;
-                --total: 8;
-                --angle: 0%;
-                --top: 10px;
-                --left: -35px;
-                --textAngle: 70deg;
-              "
-            >
-              <span>DIY</span>
-            </div>
-            <div
-              class="number"
-              data-index="4"
-              style="
-                --i: 5;
-                --clr: #ff340f;
-                --total: 8;
-                --angle: 0%;
-                --top: 10px;
-                --left: -35px;
-                --textAngle: 70deg;
-              "
-            >
-              <span>Board games</span>
-            </div>
-            <div
-              class="number"
-              data-index="5"
-              style="
-                --i: 6;
-                --clr: #ff7f50;
-                --total: 8;
-                --angle: 0%;
-                --top: 10px;
-                --left: -35px;
-                --textAngle: 70deg;
-              "
-            >
-              <span>Bicycle riding</span>
-            </div>
-            <div
-              class="number"
-              data-index="6"
-              style="
-                --i: 7;
-                --clr: #3cb371;
-                --total: 8;
-                --angle: 0%;
-                --top: 10px;
-                --left: -35px;
-                --textAngle: 70deg;
-              "
-            >
-              <span>Trip</span>
-            </div>
-            <div
-              class="number"
-              data-index="7"
-              style="
-                --i: 8;
-                --clr: #4169d1;
-                --total: 8;
-                --angle: 0%;
-                --top: 10px;
-                --left: -35px;
-                --textAngle: 70deg;
-              "
-            >
-              <span>Rock climbing</span>
+            <canvas id="canvas" width="400" height="400"></canvas>
+            <div class="centerCircle">
+              <span>SPIN</span>
+              <div class="triangle"></div>
             </div>
           </div>
-        </section>
+        </div>
       </div>
     </main>
 

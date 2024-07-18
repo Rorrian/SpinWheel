@@ -1,22 +1,23 @@
 @media (max-width: 1100px) {
   .wrapper {
-    flex-direction: column;
-    row-gap: 50px;
+    grid-template-columns: 1fr;
+    justify-items: center;
+    row-gap: 30px;
     align-items: center;
   }
 
   .controls {
+    row-gap: 40px;
+  }
+
+  .winner {
     margin-bottom: 0;
 
-    row-gap: 40px;
+    font-size: 1em;
   }
 
   .container .wheel .number span {
     max-width: 90px;
-  }
-
-  .setBtn {
-    margin-bottom: 0;
   }
 
   .error {
@@ -31,14 +32,16 @@
     font-size: 3.5em;
   }
 
-  .container {
-    width: 300px;
-    height: 300px;
+  canvas {
+    width: 290px;
+    height: 290px;
+  }
+
+  .triangle {
+    right: -156%;
   }
 
   .controls label span {
-    margin-bottom: 10px;
-
     font-size: 1em;
   }
 }

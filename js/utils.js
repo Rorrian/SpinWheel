@@ -6,22 +6,42 @@ export const querySelectorWithError = (selector, errorMessage) => {
   return element
 }
 
-export const applyElementStyle = (el, styles) => {
-  Object.keys(styles).forEach((prop) => {
-    el.style.setProperty(prop, styles[prop])
-  })
-}
-
-export const isMobileDevice = () => {
-  return window.matchMedia("(max-width: 767px)").matches
+export const getItemsFromTextarea = () => {
+  const textarea = querySelectorWithError("textarea", "Textarea not found!")
+  return textarea ? textarea.value.split(/[,\n]+/) : []
 }
 
 export const generateRandomColor = () => {
-  let color = Math.floor(Math.random() * 16777215).toString(16)
-  while (color.length < 6) {
-    color = "0" + color
+  const r = Math.floor(Math.random() * 255)
+  const g = Math.floor(Math.random() * 255)
+  const b = Math.floor(Math.random() * 255)
+
+  return { r, g, b }
+}
+
+export const generateColors = (length) => {
+  const newColors = []
+  for (let i = 0; i < length; i++) {
+    newColors.push(generateRandomColor())
   }
-  return `#${color}`
+
+  return newColors
+}
+
+export const convertToRad = (deg) => {
+  return deg * (Math.PI / 180.0)
+}
+
+export const getRandomRange = (min, max) => {
+  return Math.floor(Math.random() * (max - min + 1)) + min
+}
+
+export const getPercent = (input, min, max) => {
+  return ((input - min) * 100) / (max - min) / 100
+}
+
+export const easeOutSine = (x) => {
+  return Math.sin((x * Math.PI) / 2)
 }
 
 export const printErrorToConsole = (message) => {

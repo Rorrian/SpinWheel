@@ -10,11 +10,14 @@
 }
 
 :root {
+  --white: #fff;
+  --black: #111;
+  --grey: #222;
   --blue: #03a9f4;
   --pink: #f441a5;
   --yellow: #ffeb3b;
-  --grey: #222;
-  --white: #fff;
+  --red: #f00;
+  --transition: 0.5s ease-in-out;
 }
 
 body {
@@ -28,7 +31,7 @@ h1 {
   padding: 0;
 
   font-size: 4.5em;
-  color: #111;
+  color: var(--black);
   text-align: center;
 }
 h1 span {
@@ -61,21 +64,23 @@ h1 span:nth-child(7) {
   100% {
     color: var(--white);
     filter: blur(2px);
-    text-shadow: 0 0 10px #fff200, 0 0 20px #fff200, 0 0 40px #fff200,
-      0 0 80px #fff200, 0 0 120px #fff200, 0 0 200px #fff200, 0 0 300px #fff200;
+    text-shadow: 0 0 10px var(--yellow), 0 0 20px var(--yellow),
+      0 0 40px var(--yellow), 0 0 80px var(--yellow), 0 0 120px var(--yellow),
+      0 0 200px var(--yellow), 0 0 300px var(--yellow);
   }
   5%,
   95% {
-    color: #111;
+    color: var(--black);
     filter: blur(0px);
     text-shadow: 0 0 10px none;
   }
 }
 
 .wrapper {
-  display: flex;
+  display: grid;
+  grid-template-columns: 400px auto;
+  column-gap: 7vw;
   justify-content: center;
-  column-gap: 10vw;
 
   width: 100%;
 }
@@ -88,8 +93,6 @@ h1 span:nth-child(7) {
   justify-content: center;
   row-gap: 30px;
 
-  margin-bottom: 50px;
-  
   color: var(--white);
 }
 
@@ -112,12 +115,13 @@ h1 span:nth-child(7) {
 
 .controls label textarea {
   width: 100%;
-  min-height: 200px;
+  max-width: 400px;
+  min-height: 230px;
   padding: 10px;
   resize: none;
 
   font-size: 1em;
-  color: #111;
+  color: var(--black);
 }
 .controls label textarea:placeholder {
   font-style: italic;
@@ -143,13 +147,29 @@ h1 span:nth-child(7) {
   background-size: 400%;
   border-radius: 30px;
   margin: 0 auto;
-  margin-bottom: 50px;
+  overflow: hidden;
 
-  font-size: 18px;
+  font-size: 1.25em;
   color: var(--white);
   text-transform: uppercase;
+
+  cursor: pointer;
 }
-.setBtn:hover {
+.setBtn::after {
+  content: "";
+  position: absolute;
+  z-index: 0;
+
+  width: 100%;
+  height: 100%;
+  background-color: rgba(128, 128, 128, 0.5);
+  opacity: 0;
+  transition: opacity var(--transition);
+}
+.setBtn:disabled::after {
+  opacity: 1;
+}
+.setBtn:not(:disabled):hover {
   animation: text 8s linear infinite;
 }
 @keyframes text {
@@ -179,13 +199,27 @@ h1 span:nth-child(7) {
   background-size: 400%;
   border-radius: 40px;
   opacity: 0;
-  transition: filter 0.5s ease-in-out, opacity 0.5s ease-in-out,
-    background-position 0.5s ease-in-out;
+  transition: filter var(--transition), opacity var(--transition),
+    background-position var(--transition);
 }
-.setBtn:hover::before {
+.setBtn:not(:disabled):hover::before {
   filter: blur(20px);
   opacity: 1;
   animation: text 8s linear infinite;
+}
+
+.winner {
+  margin-bottom: 50px;
+
+  font-size: 1.15em;
+  text-align: center;
+}
+
+.winnerName {
+  margin-top: 10px;
+
+  font-size: 1.25em;
+  color: var(--yellow);
 }
 
 .container {
@@ -194,97 +228,49 @@ h1 span:nth-child(7) {
   display: flex;
   justify-content: center;
   align-items: center;
-
-  width: 400px;
-  height: 400px;
 }
 
-.container .spinBtn {
-  position: absolute;
-  z-index: 10;
+.container .wheel {
+  position: relative;
 
-  width: 60px;
-  height: 60px;
-  background: var(--white);
-  border-radius: 50%;
-  border: 4px solid rgba(0, 0, 0, 0.75);
+  display: flex;
+  justify-content: center;
+}
+
+.centerCircle {
+  position: absolute;
+  top: 50%;
 
   display: flex;
   justify-content: center;
   align-items: center;
 
-  text-transform: uppercase;
-  font-weight: 600;
-  color: #333;
-  letter-spacing: 0.1em;
+  width: 70px;
+  height: 70px;
+  border-radius: 60px;
+  background-color: var(--white);
+  transform: translateY(-50%);
 
   cursor: pointer;
-  user-select: none;
-}
-.container .spinBtn::before {
-  content: "";
-  position: absolute;
-  top: -28px;
-
-  width: 20px;
-  height: 30px;
-  background: var(--white);
-  clip-path: polygon(
-    50% 0%,
-    15% 100%,
-    85% 100%
-  ); /* Вспомогательный сайт - https://bennettfeely.com/clippy/ */
 }
 
-  .container .wheel {
-    position: absolute;
-    top: 0;
-    left: 0;
-
-    width: 100%;
-    height: 100%;
-    background: #333;
-    border-radius: 50%;
-    overflow: hidden;
-    box-shadow: 0 0 0 5px #333, 0 0 0 15px #fff, 0 0 0 18px #111;
-    transition: transform 5s ease-in-out;
-  }
-
-  .container .wheel .number {
-    position: absolute;
-    width: 50%;
-    height: 50%;
-    background-color: var(--clr);
-
-    display: flex;
-    justify-content: center;
-    align-items: stretch;
-
-    transform-origin: bottom right;
-    transform: rotate(calc(360deg / var(--total) * var(--i)));
-    /* форма секции круга */
-    clip-path: polygon(0 0, 100% 0, 100% 100%, 0 var(--angle));
-    /* clip-path: polygon(0 17%, 0 50%, 50% 50%); */
-    transition: transform 5s ease-out;
-
-    user-select: none;
-    cursor: pointer;
-  }
-
-.container .wheel .number span {
-  position: relative;
-  /* top: 10px; */
-  top: var(--top);
-  /* left: -20px; */
-  left: var(--left);
-  /* transform: rotate(70deg); */
-  transform: rotate(var(--textAngle));
-
-  font-size: 0.75em;
+.centerCircle span {
+  font-size: 1.15em;
   font-weight: 600;
-  color: var(--white);
-  text-shadow: 3px 5px 2px rgba(0, 0, 0, 0.15);
-  text-align: center;
+  color: var(--black);
+}
+
+.triangle {
+  position: absolute;
+  top: 50%;
+  right: -234%;
+
+  width: 0;
+  height: 0;
+  border-top: 10px solid transparent;
+  border-bottom: 10px solid transparent;
+  border-right: 30px solid var(--red);
+  transform: translateY(-50%);
 }
 
 .error {
@@ -293,5 +279,5 @@ h1 span:nth-child(7) {
   left: 10px;
 
   font-size: 14px;
-  color: #f00;
+  color: var(--red);
 }
