@@ -19,4 +19,4 @@ https://rorrian.github.io/SpinWheel/
 <B>How to improve:</B>
 
 - [x] display result
-- [] make the wheel "draggable" ?
+- [ ] make the wheel "draggable" ?
