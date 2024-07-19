@@ -20,4 +20,4 @@ https://rorrian.github.io/SpinWheel/
 
 - [x] display result
 - [ ] make the wheel "draggable" ?
-- [ ] optimize(make simple?) animation on mobile devices
+- [x] optimize(make simple) animation on mobile devices
