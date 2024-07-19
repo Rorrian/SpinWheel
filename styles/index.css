@@ -36,7 +36,10 @@ h1 {
 }
 h1 span {
   font-family: "Bad Script", cursive;
-  animation: animate 2s linear infinite;
+  animation: animate 3s linear infinite;
+  will-change: color, filter, text-shadow;
+  backface-visibility: hidden;
+  transform: translate3d(0, 0, 0);
 }
 h1 span:nth-child(1) {
   animation-delay: 0s;
@@ -64,12 +67,14 @@ h1 span:nth-child(7) {
   100% {
     color: var(--white);
     filter: blur(2px);
-    text-shadow: 0 0 10px var(--yellow), 0 0 20px var(--yellow),
+    /* text-shadow: 0 0 10px var(--yellow), 0 0 20px var(--yellow),
       0 0 40px var(--yellow), 0 0 80px var(--yellow), 0 0 120px var(--yellow),
-      0 0 200px var(--yellow), 0 0 300px var(--yellow);
+      0 0 200px var(--yellow), 0 0 300px var(--yellow); */
+    text-shadow: 0 0 10px var(--yellow), 0 0 20px var(--yellow),
+      0 0 40px var(--yellow);
   }
-  5%,
-  95% {
+  10%,
+  90% {
     color: var(--black);
     filter: blur(0px);
     text-shadow: 0 0 10px none;
@@ -172,14 +177,6 @@ h1 span:nth-child(7) {
 .setBtn:not(:disabled):hover {
   animation: text 8s linear infinite;
 }
-@keyframes text {
-  0% {
-    background-position: 0%;
-  }
-  100% {
-    background-position: 400%;
-  }
-}
 .setBtn::before {
   content: "";
   position: absolute;
@@ -206,6 +203,20 @@ h1 span:nth-child(7) {
   filter: blur(20px);
   opacity: 1;
   animation: text 8s linear infinite;
+}
+@keyframes text {
+  0% {
+    background-position: 0%;
+  }
+  100% {
+    background-position: 400%;
+  }
+}
+.setBtn,
+.setBtn::before {
+  will-change: transform, opacity, filter;
+  backface-visibility: hidden;
+  transform: translate3d(0, 0, 0);
 }
 
 .winner {
@@ -250,7 +261,7 @@ h1 span:nth-child(7) {
   border-radius: 60px;
   background-color: var(--white);
   transform: translateY(-50%);
-
+  will-change: transform;
   cursor: pointer;
 }
 
