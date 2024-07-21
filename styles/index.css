@@ -23,11 +23,12 @@
 body {
   background: var(--grey);
   min-height: 100vh;
-  padding: 30px 20px;
+  padding: 20px;
 }
 
 h1 {
   margin: 20px 0 40px;
+  margin-bottom: 20px;
   padding: 0;
 
   font-size: 4.5em;
