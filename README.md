@@ -1,23 +1,19 @@
 # Roulette
-
 *for difficult choices :)*
+<br/>
 
 ![alt text](example.gif)
 
-<B>Deployment:</B><br/>
+## Deployment:
 https://rorrian.github.io/SpinWheel/
 
-<br/>
-
-<B>TODO:</B>
-
+## TODO:
 - [x] add option to separate options via comma or line break
 - [x] fix display of text on mobile devices
 
 <br/>
 
-<B>How to improve:</B>
-
+## How to improve:
 - [x] display result
 - [ ] make the wheel "draggable" ?
 - [x] optimize(make simple) animation on mobile devices
