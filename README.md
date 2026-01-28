@@ -2,7 +2,7 @@
 *for difficult choices :)*
 <br/>
 
-![alt text](example.gif)
+![alt text](version2.gif)
 
 ## Deployment:
 https://rorrian.github.io/SpinWheel/
