@@ -6,7 +6,12 @@
     align-items: center;
   }
 
+  .container {
+    order: -1;
+  }
+
   .controls {
+    order: 1;
     row-gap: 40px;
   }
 
